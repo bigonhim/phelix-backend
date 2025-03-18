@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kazi Connector - Worker Registration</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Worker Registration</h1>
+            <form action="/register_worker" method="POST">
+                {% csrf_token %}
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="password" id="password1" name="password1" placeholder="Password" required>
+                <input type="password" id="password2" name="password2" placeholder="Confirm Password" required>
+                <input type="text" id="full_name" name="full_name" placeholder="Full Name" required>
+                <input type="text" id="contact_info" name="contact_info" placeholder="Contact Info" required>
+                <input type="text" id="skills" name="skills" placeholder="Skills" required>
+                <button type="submit">Register</button>
+                <p>Already have an account? <a href="{% url 'worker_login' %}">Login</a></p>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
